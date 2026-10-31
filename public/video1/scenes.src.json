@@ -2,105 +2,78 @@
   "style": "explainer",
   "brand": "NamaBrandSaya",
   "tag": "dasar · AI agent",
-  "accent": "#22d3ee",
-  "char": "girl",
+  "accent": "#e5252a",
+  "char": "robot",
   "charColor": "#222222",
   "cta": "Link-nya di bio",
   "scenes": [
     {
-      "title": "Ada satu hal *yang* *jarang* diomongin orang",
       "start": 0,
+      "title": "Ada satu hal yang jarang diomongin orang soal mulai *jualan.*",
       "small": 3,
       "mascot": "center",
-      "pose": "idle",
+      "pose": "point",
       "stage": []
     },
     {
-      "title": "soal mulai *jualan.*",
-      "start": 2.9,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "Ini bukan cuma soal *untung,*",
       "start": 4.1,
-      "small": 0,
+      "title": "Ini bukan cuma soal *untung,*",
+      "small": 3,
       "mascot": "left",
-      "pose": "wave",
       "stage": []
     },
     {
-      "title": "tapi soal gimana rasanya tangan *gemetaran*",
       "start": 5.9,
-      "small": 0,
+      "title": "tapi soal gimana rasanya *tangan* *gemetaran*",
+      "small": 2,
       "stage": []
     },
     {
-      "title": "pas mau unggah foto *produk* yang *pertama.*",
       "start": 8.4,
-      "small": 3,
+      "title": "pas mau *unggah* *foto* produk yang pertama.",
+      "small": 2,
       "stage": []
     },
     {
-      "title": "Kayak *tunas* yang lagi berusaha",
       "start": 11.3,
-      "small": 0,
+      "title": "Kayak *tunas* yang lagi berusaha nembus tanah yang keras,",
+      "small": 2,
       "stage": []
     },
     {
-      "title": "nembus tanah yang *keras,*",
-      "start": 13.4,
-      "small": 0,
-      "mascot": "right",
-      "pose": "shock",
-      "stage": []
-    },
-    {
-      "title": "rasa *takut* yang kamu rasain",
       "start": 15.1,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "itu tandanya kamu lagi *bertumbuh,* lho.",
-      "start": 17.2,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "Coba deh *bagikan* pesan ini",
-      "start": 19.7,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "ke *teman* kamu yang sekiranya",
-      "start": 21.5,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "lagi butuh *keberanian.*",
-      "start": 23.3,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "Terus, *ceritain* juga dong",
-      "start": 24.5,
-      "small": 0,
-      "stage": []
-    },
-    {
-      "title": "satu *ketakutan* kamu di *bawah* ya.",
-      "start": 26.3,
+      "title": "rasa *takut* yang kamu rasain itu tandanya",
       "small": 3,
-      "mascot": "center",
-      "pose": "wave",
+      "mascot": "right",
+      "stage": []
+    },
+    {
+      "start": 18,
+      "title": "kamu lagi *bertumbuh,* lho.",
+      "small": 2,
+      "mascot": "left",
+      "stage": []
+    },
+    {
+      "start": 19.7,
+      "title": "Coba deh *bagikan* pesan ini ke teman kamu",
+      "small": 2,
+      "stage": []
+    },
+    {
+      "start": 22.6,
+      "title": "yang sekiranya lagi butuh *keberanian.*",
+      "small": 2,
+      "stage": []
+    },
+    {
+      "start": 24.5,
+      "title": "Terus, ceritain juga dong satu *ketakutan* kamu di bawah ya.",
+      "small": 3,
       "stage": [
         {
           "type": "callout",
-          "title": "satu ketakutan kamu di",
+          "title": "Terus, ceritain juga dong",
           "sub": "NamaBrandSaya",
           "cta": ""
         }
@@ -108,7 +81,7 @@
     }
   ],
   "header": true,
-  "charStyle": "stick",
+  "charStyle": "block",
   "transitions": [
     "fade",
     "slide-left",
@@ -121,7 +94,7 @@
   ],
   "bgMode": "single",
   "bgEvery": 3,
-  "theme": "hud",
+  "theme": "clean",
   "audio": {
     "music": true,
     "sfx": true,
