@@ -48,7 +48,7 @@ const HUD_VARS = {
   "--mute": "#9fb3d1",
   "--bar": "rgba(34,211,238,.45)",
   "--callout-bg": "linear-gradient(180deg,rgba(8,22,50,.88),rgba(60,28,8,.78))",
-} as React.CSSProperties;
+} as unknown as React.CSSProperties;
 
 // ---- latar yang bisa dipilih (satu video boleh memakai beberapa, ganti otomatis tiap N adegan) ----
 type Preset = { bg: string; pattern: "dots" | "grid" | "none"; dot: string; ink: string; mute: string };
