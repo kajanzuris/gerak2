@@ -113,6 +113,7 @@ for si, s in enumerate(scenes):                                                 
 AUD = data.get('audio') or {}
 USE_MUSIC, USE_SFX, USE_BLOCKSFX = AUD.get('music', True), AUD.get('sfx', True), AUD.get('blockSfx', True)
 EXPLAINER = data.get('style') == 'explainer'
+HUD = EXPLAINER and data.get('theme') == 'hud'
 T_OK = ('fade', 'slide-left', 'slide-up', 'zoom', 'wipe', 'none')
 T_LIST = [x for x in (data.get('transitions') or []) if x in T_OK]
 def trans_kind(i, s):
@@ -183,6 +184,10 @@ if EXPLAINER and USE_BLOCKSFX:                                                  
                 kk = norm(at); h = next((w for w in ws_s if kk and norm(w['w']).startswith(kk)), None)
                 if h: t0 = h['a']
             sfx.append(dict(t=round(t0, 3), type='plink' if b.get('type') in ('stat', 'callout') else 'pop', gain=.35))
+if HUD:                                                                              # paket suara HUD: bip elektronik tiap label diketik + blip transisi
+    for si, s in enumerate(scenes):
+        sfx.append(dict(t=round(s['start'] + .1, 3), type='ticks', d=.55, step=.05, gain=.22))
+        if si: sfx.append(dict(t=round(s['start'] + .05, 3), type='plink', gain=.3))
 if data.get('cta'): sfx += [dict(t=round(DUR - 2.0, 3), type='sparkle'), dict(t=round(DUR - 2.0, 3), type='pop', gain=.6)]
 if not USE_SFX: sfx = []
 music = dict(profile='bed', bpm=100, bars=['C', 'G', 'Am', 'F'], breaks=[], arp_from=2.0, hat_from=4.0, clap_from=999, final=round(max(DUR - 1.6, 1.0), 3))
