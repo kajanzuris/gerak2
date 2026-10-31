@@ -22,7 +22,7 @@ POSE = {'idle', 'point', 'shock', 'sad', 'cheer', 'wave', 'walk', 'tremble', 'th
 CARD = {'list', 'stat', 'bars', 'tool'}
 CT = {'girl', 'boss', 'robot', 'block', 'sprite'}
 STYLE = {'stick', 'robot', 'block', 'sprite', 'explainer'}
-STAGE = {'window', 'compare', 'tree', 'files', 'dialog', 'callout', 'list', 'stat', 'image'}
+STAGE = {'window', 'compare', 'tree', 'files', 'dialog', 'callout', 'list', 'stat', 'image', 'meter', 'bars'}
 ROW = {'bubble', 'check', 'input', 'note', 'buttons', 'files'}
 MASCOT = {'left', 'center', 'right'}
 err, warn = [], []
@@ -67,6 +67,11 @@ for i, s in enumerate(sc):
                 src = b.get('src')
                 if not src: err.append(f'adegan {i}: stage[{j}] image butuh src')
                 elif not os.path.exists(f'{D}/{src}'): err.append(f"adegan {i}: file gambar '{src}' belum ada di {D}/ (upload ke folder itu, nama harus persis)")
+            if b.get('type') == 'meter' and not isinstance(b.get('pct'), (int, float)): err.append(f'adegan {i}: stage[{j}] meter butuh pct (angka 0-100)')
+            if b.get('type') == 'bars':
+                if not b.get('bars'): err.append(f'adegan {i}: stage[{j}] bars butuh bars [{{label, value}}]')
+                for bi, it in enumerate(b.get('bars') or []):
+                    if not isinstance(it, dict) or not isinstance(it.get('value'), (int, float)): err.append(f'adegan {i}: stage[{j}].bars[{bi}] butuh label dan value (angka)')
             if b.get('type') == 'compare' and not (b.get('left') and b.get('right')): err.append(f'adegan {i}: stage[{j}] compare butuh left dan right')
             if b.get('type') == 'tree' and not b.get('cols'): err.append(f'adegan {i}: stage[{j}] tree butuh cols')
     else:
@@ -95,6 +100,7 @@ for i, s in enumerate(sc):
         elif s['start'] - sc[i - 1]['start'] < 1.0: warn.append(f'adegan {i}: jarak start < 1 dtk (prepare.py akan memaksa min 0.8 dtk)')
 
 if EX:
+    if d.get('theme') not in (None, 'clean', 'hud'): err.append(f"theme '{d.get('theme')}' tidak dikenal (clean / hud)")
     if d.get('charStyle') == 'sprite':
         for k in ('charImg', 'charTalkImg'):
             if d.get(k) and not os.path.exists(f'{D}/{d[k]}'): err.append(f"file karakter '{d[k]}' belum ada di {D}/ (upload PNG transparan ke folder itu)")
